@@ -28,7 +28,11 @@ class MainActivity : AppCompatActivity() {
                 1 -> resp = numero1 + numero2
                 2 -> resp = numero1 - numero2
                 3 -> resp = numero1 * numero2
-                4 -> resp = numero1 / numero2
+                4 -> if(numero2 != 0.0){
+                    resp = numero1 / numero2
+                } else {
+                    
+                }
             }
 
             tv_num2.setText(resp.toString())
@@ -38,8 +42,6 @@ class MainActivity : AppCompatActivity() {
         btnBorrar.setOnClickListener{
             tv_num1.setText("")
             tv_num2.setText("")
-            numero1 = 0.0
-            oper = 0
         }
     }
 
@@ -57,9 +59,11 @@ class MainActivity : AppCompatActivity() {
             R.id.btn7 -> tv_num2.setText(num2 + "7")
             R.id.btn8 -> tv_num2.setText(num2 + "8")
             R.id.btn9 -> tv_num2.setText(num2 + "9")
-            R.id.btnPunto-> tv_num2.setText(num2 + ".")
-
-
+            R.id.btnPunto -> {
+                if (!num2.contains(".")) {
+                    tv_num2.setText(num2 + ".")
+                }
+            }
         }
     }
 
